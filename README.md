@@ -4,7 +4,7 @@
 ## Workflows
 
 1. Update config.yaml
-2. Update secrets.yaml [Optional]
+2. Update secrets.yaml [Opt]
 3. Update params.yaml
 4. Update the entity
 5. Update the configuration manager in src config
@@ -20,7 +20,7 @@
 Clone the repository
 
 ```bash
-https://github.com/krishnaik06/Kidney-Disease-Classification-Deep-Learning-Project
+https://github.com/aryan18s/Kidney-Disease-Classification-Deep-Learning-Project 
 ```
 ### STEP 01- Create a conda environment after opening the repository
 
