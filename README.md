@@ -49,3 +49,8 @@ pip install -r requirements.txt
 
 ### dagshub
 [dagshub](https://dagshub.com/)
+
+### DVC Command
+1. dvc init
+2. dvc repro
+3. dvc dag
