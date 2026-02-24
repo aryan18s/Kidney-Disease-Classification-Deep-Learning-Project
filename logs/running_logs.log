@@ -1007,3 +1007,13 @@ FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open f
 [2026-02-24 14:20:22,351: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
 [2026-02-24 14:20:22,606: WARNING: polymorphic_function: 5 out of the last 5 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000019C17D48CC0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.]
 [2026-02-24 14:20:22,626: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:20:22] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 15:50:18,189: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.5:8080]
+[2026-02-24 15:50:18,190: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-02-24 15:50:38,145: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 15:50:38] "GET / HTTP/1.1" 200 -]
+[2026-02-24 15:50:46,851: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 15:50:47,458: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 15:50:47] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 15:50:53,569: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 15:50:53,869: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 15:50:53] "POST /predict HTTP/1.1" 200 -]
