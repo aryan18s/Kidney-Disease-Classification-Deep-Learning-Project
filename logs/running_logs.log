@@ -692,3 +692,318 @@ x==========x]
 [2026-02-24 13:50:14,571: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage completed <<<<<<
 
 x==========x]
+[2026-02-24 14:05:09,923: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.5:8080]
+[2026-02-24 14:05:09,923: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-02-24 14:05:39,946: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:05:39] "GET / HTTP/1.1" 200 -]
+[2026-02-24 14:06:25,416: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+                         ^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Kidney-Disease-Classification-Deep-Learning-Project\app.py", line 44, in predictRoute
+    result = clApp.classifier.predict()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Kidney-Disease-Classification-Deep-Learning-Project\src\cnnClassifier\pipeline\prediction.py", line 16, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 118, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\h5py\_hl\files.py", line 566, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\h5py\_hl\files.py", line 241, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 104, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = 'model\model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2026-02-24 14:06:25,539: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:06:25] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-02-24 14:07:38,007: INFO: stage_04_model_evaluation: *******************]
+[2026-02-24 14:07:38,008: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage started <<<<<<]
+[2026-02-24 14:07:38,009: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-02-24 14:07:38,011: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-02-24 14:07:38,013: INFO: common: created directory at: artifacts]
+[2026-02-24 14:07:38,438: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:07:51,072: INFO: common: json file saved at: scores.json]
+[2026-02-24 14:07:51,073: INFO: common: json file saved at: scores.json]
+[2026-02-24 14:07:52,282: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2026-02-24 14:07:52,290: INFO: helpers: Accessing as aryan18s]
+[2026-02-24 14:07:53,493: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/repos/aryan18s/Kidney-Disease-Classification-Deep-Learning-Project "HTTP/1.1 200 OK"]
+[2026-02-24 14:07:54,680: INFO: _client: HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"]
+[2026-02-24 14:07:54,685: INFO: helpers: Initialized MLflow to track repo "aryan18s/Kidney-Disease-Classification-Deep-Learning-Project"]
+[2026-02-24 14:07:54,687: INFO: helpers: Repository aryan18s/Kidney-Disease-Classification-Deep-Learning-Project initialized!]
+[2026-02-24 14:08:58,976: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]
+[2026-02-24 14:09:27,310: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.5:8080]
+[2026-02-24 14:09:27,311: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-02-24 14:09:27,584: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:09:27] "GET / HTTP/1.1" 200 -]
+[2026-02-24 14:09:32,349: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:09:32] "GET / HTTP/1.1" 200 -]
+[2026-02-24 14:09:37,638: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+                         ^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Kidney-Disease-Classification-Deep-Learning-Project\app.py", line 44, in predictRoute
+    result = clApp.classifier.predict()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Kidney-Disease-Classification-Deep-Learning-Project\src\cnnClassifier\pipeline\prediction.py", line 16, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 118, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\h5py\_hl\files.py", line 566, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\h5py\_hl\files.py", line 241, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 104, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = 'model\model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2026-02-24 14:09:37,650: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:09:37] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-02-24 14:10:25,886: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:10:25] "GET / HTTP/1.1" 200 -]
+[2026-02-24 14:10:27,805: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+                         ^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Kidney-Disease-Classification-Deep-Learning-Project\app.py", line 44, in predictRoute
+    result = clApp.classifier.predict()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Kidney-Disease-Classification-Deep-Learning-Project\src\cnnClassifier\pipeline\prediction.py", line 16, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 118, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\h5py\_hl\files.py", line 566, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\h5py\_hl\files.py", line 241, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 104, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = 'model\model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2026-02-24 14:10:27,808: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:10:27] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-02-24 14:10:30,407: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:10:30] "GET / HTTP/1.1" 200 -]
+[2026-02-24 14:10:38,505: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+                         ^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Kidney-Disease-Classification-Deep-Learning-Project\app.py", line 44, in predictRoute
+    result = clApp.classifier.predict()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Kidney-Disease-Classification-Deep-Learning-Project\src\cnnClassifier\pipeline\prediction.py", line 16, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 118, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\h5py\_hl\files.py", line 566, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\h5py\_hl\files.py", line 241, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 104, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = 'model\model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2026-02-24 14:10:38,508: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:10:38] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-02-24 14:14:12,112: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:14:12] "GET / HTTP/1.1" 200 -]
+[2026-02-24 14:14:20,843: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aryan Sojitra\AppData\Roaming\Python\Python312\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+                         ^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Kidney-Disease-Classification-Deep-Learning-Project\app.py", line 44, in predictRoute
+    result = clApp.classifier.predict()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Kidney-Disease-Classification-Deep-Learning-Project\src\cnnClassifier\pipeline\prediction.py", line 16, in predict
+    model = load_model(os.path.join("artifacts", "training", "model.h5"))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 118, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\h5py\_hl\files.py", line 566, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\envs\kidney\Lib\site-packages\h5py\_hl\files.py", line 241, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 104, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = 'model\model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2026-02-24 14:14:20,889: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:14:20] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-02-24 14:14:55,441: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.5:8080]
+[2026-02-24 14:14:55,441: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-02-24 14:15:02,949: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:02] "GET / HTTP/1.1" 200 -]
+[2026-02-24 14:15:07,345: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:08,006: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:08] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:15,830: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:16,119: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:16] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:17,023: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:17,312: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:17] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:17,905: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:18,200: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:18] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:23,394: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:23,665: WARNING: polymorphic_function: 5 out of the last 5 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000029E1CE64CC0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.]
+[2026-02-24 14:15:23,685: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:23] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:24,464: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:24,730: WARNING: polymorphic_function: 6 out of the last 6 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000029E1D514D60> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.]
+[2026-02-24 14:15:24,750: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:24] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:25,338: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:25,612: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:25] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:29,915: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:30,197: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:30] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:35,588: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:35,875: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:35] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:41,857: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:42,137: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:42] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:46,741: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:47,041: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:47] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:52,010: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:52,300: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:52] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:53,299: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:53,612: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:53] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:15:58,071: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:15:58,359: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:15:58] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:16:03,363: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:16:03,645: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:16:03] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:16:06,651: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:16:06,956: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:16:06] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:16:11,049: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:16:11,335: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:16:11] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:16:16,614: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:16:16,891: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:16:16] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:16:33,066: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:16:33,347: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:16:33] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:16:37,639: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:16:37,914: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:16:37] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:16:42,299: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:16:42,649: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:16:42] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:19:13,090: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.5:8080]
+[2026-02-24 14:19:13,090: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-02-24 14:19:16,108: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:19:16] "GET / HTTP/1.1" 200 -]
+[2026-02-24 14:20:00,424: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:20:00,738: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:20:00] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:20:06,990: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:20:07,279: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:20:07] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:20:09,894: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:20:10,169: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:20:10] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:20:14,863: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:20:15,138: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:20:15] "POST /predict HTTP/1.1" 200 -]
+[2026-02-24 14:20:22,351: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-02-24 14:20:22,606: WARNING: polymorphic_function: 5 out of the last 5 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000019C17D48CC0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.]
+[2026-02-24 14:20:22,626: INFO: _internal: 127.0.0.1 - - [24/Feb/2026 14:20:22] "POST /predict HTTP/1.1" 200 -]
